@@ -16,6 +16,7 @@ app.use(companyIdFromHeaders)
 app.use("/v1", routes.statRouter)
 app.use("/v1", routes.tradeRouter)
 app.use("/v1", routes.tradeHistoryRouter)
+app.use("/v1", routes.tickerRouter)
 
 
 export default app
