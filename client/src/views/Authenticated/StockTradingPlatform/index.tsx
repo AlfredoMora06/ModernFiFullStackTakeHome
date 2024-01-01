@@ -16,6 +16,7 @@ import BuySellTrade from "./BuySellTrade"
 import modernfi from "../../../assets/modernfi.svg"
 import { getTradeHistoryByTicker } from "../../../api/tradeHistory"
 import { TradeHistory } from "../../../types/tradeHistory"
+import { createTicker } from "../../../api/ticker"
 
 
 export type DialogTypes = TradeSide | null | 'quote'
@@ -31,6 +32,7 @@ export default function StockTradingPlatform():JSX.Element {
       const res = await getTickerStats(ticker_symbol)
       if(Array.isArray(res.data) && res.status === 200){
         setTickerStatistics(res.data[0])
+        // check if ticker exists, if not create one...
         if(res.data[0] != null){
           const historyRes = await getTradeHistoryByTicker(ticker_symbol)
           if(Array.isArray(historyRes.data) && historyRes.status === 200){
@@ -39,6 +41,14 @@ export default function StockTradingPlatform():JSX.Element {
             enqueueSnackbar("Had trouble retrieving the ticker's trade history", {variant: "error"})
           }
           setOpenPrompt('quote')
+        } else {
+          const createTickerRes = await createTicker(ticker_symbol)
+          if(createTickerRes.status === 200){
+            setTickerStatistics(createTickerRes.data.tickerStats)
+            setOpenPrompt('quote')
+          } else {
+            enqueueSnackbar("Had trouble retrieving the ticker statistics", {variant: "error"})
+          }
         }
       } else {
         enqueueSnackbar("Had trouble retrieving the ticker statistics", {variant: "error"})
@@ -115,7 +125,7 @@ export default function StockTradingPlatform():JSX.Element {
                               { tickerStatistics === undefined 
                                 ? <Grid container>
                                     <ErrorIcon fontSize={"small"} sx={{color: "#BA3D20", marginTop: 0.2}} />
-                                    <Typography fontSize={15} sx={{color: "#BA3D20", paddingLeft: 1}}> Error: Enter a valid security ticker.</Typography>
+                                    <Typography fontSize={15} sx={{color: "#BA3D20", paddingLeft: 1}}> Error: Unable to access this ticker.</Typography>
                                   </Grid>
                                 : <></>
                               }
