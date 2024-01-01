@@ -8,7 +8,7 @@ const aaplTradeStats = {
 }
 
 
-const ticketReviewPeriodFixtures: FixtureTable = {
+const tickerStatisticsFixtures: FixtureTable = {
   tableName: 'trade_statistics',
   alwaysFlush: true,
   data: {
@@ -16,4 +16,4 @@ const ticketReviewPeriodFixtures: FixtureTable = {
   }
 }
 
-export default ticketReviewPeriodFixtures
+export default tickerStatisticsFixtures

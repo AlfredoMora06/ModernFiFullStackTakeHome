@@ -5,12 +5,16 @@ import sqlFixtures from 'sql-fixtures'
 import {convertStringToValidNumber} from "../../src/utils/validation.js"
 import {FixtureTable} from "./util/index.js"
 import {db} from "../../src/data/db.js"
-import aaplTradeStats from "./trade_statistics.js"
+import tickerStatisticsFixtures from "./ticker_statistics.js"
+import tradeHistoryFixtures from "./trade_history.js"
+import tradeFixtures from "./trades.js"
 
 
 // ** MUST BE ADDED IN ORDER OF FOREIGN KEY DEPENDENCIES
 const fixtureTablesOrderedByDependency: FixtureTable[] = [
-  aaplTradeStats,
+  tickerStatisticsFixtures,
+  tradeHistoryFixtures,
+  tradeFixtures,
 ]
 
 // Allows us easy access to fixtures
