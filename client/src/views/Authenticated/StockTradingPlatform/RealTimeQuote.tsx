@@ -1,5 +1,6 @@
 import React from "react"
 import { Button, Grid } from "@mui/material"
+import OpenInBrowserIcon from '@mui/icons-material/OpenInBrowser'
 
 import { TickerStatistics } from "../../../types/tickerStatistics"
 import { TradeSide } from "../../../types/trade"
@@ -20,8 +21,14 @@ export default function RealTimeQuote(
     <>
       <Grid container>
         <RealTimeInfo tickerStatistics={tickerStatistics} tickerTradeHistory={tickerTradeHistory}/>
+
+        <Grid item container justifyContent={"flex-end"}>
+          <Button variant="text" endIcon={<OpenInBrowserIcon/>} sx={{textTransform: "capitalize"}}>
+            View Ticker History
+          </Button>
+        </Grid>
   
-        <Grid item container justifyContent="flex-end" xs={12} paddingTop={6}>
+        <Grid item container justifyContent="flex-end" xs={12} paddingTop={2}>
           <Button
             variant="contained" 
             size="large"

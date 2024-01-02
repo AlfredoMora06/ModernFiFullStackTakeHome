@@ -5,7 +5,7 @@ import { columnsReturnedFromDbQuery } from "../model/Model.js"
 async function createHistoryForTrade(trade: Trade.Trade): Promise<void> {
     const tradeHistory = {
       ticker_symbol: trade.ticker_symbol,
-      trade_id: trade.trade_id,
+      trade_id: trade.id,
       side: trade.side,
       price: trade.price,
       volume: trade.volume,

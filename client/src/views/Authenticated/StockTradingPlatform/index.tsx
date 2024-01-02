@@ -31,9 +31,9 @@ export default function StockTradingPlatform():JSX.Element {
     try {
       const res = await getTickerStats(ticker_symbol)
       if(Array.isArray(res.data) && res.status === 200){
-        setTickerStatistics(res.data[0])
         // check if ticker exists, if not create one...
         if(res.data[0] != null){
+          setTickerStatistics(res.data[0])
           const historyRes = await getTradeHistoryByTicker(ticker_symbol)
           if(Array.isArray(historyRes.data) && historyRes.status === 200){
             setTickerTradeHistory(historyRes.data)
@@ -44,6 +44,8 @@ export default function StockTradingPlatform():JSX.Element {
         } else {
           const createTickerRes = await createTicker(ticker_symbol)
           if(createTickerRes.status === 200){
+            // Ticker trade history is null since it was just created
+            setTickerTradeHistory(null)
             setTickerStatistics(createTickerRes.data.tickerStats)
             setOpenPrompt('quote')
           } else {
