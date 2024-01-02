@@ -18,6 +18,9 @@ export default function RealTimeInfo(
     ? tickerTradeHistory[0]
     : null
 
+  const lastTradeTime = lastTrade != null ? formatDateTimeLongMonth(lastTrade.timestamp) : "--"
+  const lastTradeVolume = lastTrade != null ? lastTrade.volume : "--"
+
 
   const tickerStatsArray: {title: string, content: string}[]  = [
     {
@@ -38,17 +41,12 @@ export default function RealTimeInfo(
     <Grid container item>
       <Grid item xs={12} paddingBottom={2} borderBottom={3} borderColor={"rgba(36, 46, 53, 0.75)"}>
         <Typography variant="h5" fontWeight={700} marginBottom={1}>{ticker_symbol}</Typography>
-        { lastTrade != null
-          ? <>
-            <Typography fontSize={15} sx={{color: "rgba(36, 46, 53, 0.75)"}}>
-              {`Last trade: ${formatDateTimeLongMonth(lastTrade.timestamp)}`}
-            </Typography>
-            <Typography fontSize={15} sx={{color: "rgba(36, 46, 53, 0.75)"}}>
-              {`Last size: ${lastTrade.volume}`}
-            </Typography>
-          </>
-          : <></>
-        }
+          <Typography fontSize={15} sx={{color: "rgba(36, 46, 53, 0.75)"}}>
+            {`Last trade: ${lastTradeTime}`}
+          </Typography>
+          <Typography fontSize={15} sx={{color: "rgba(36, 46, 53, 0.75)"}}>
+            {`Last size: ${lastTradeVolume}`}
+          </Typography>
       </Grid>
       {
         tickerStatsArray.map((tickerStat) => {

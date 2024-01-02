@@ -12,7 +12,7 @@ export interface SubmitTrade {
 }
 
 export interface Trade {
-  trade_id: string,
+  id: string,
   ticker_symbol: string,
   side: string, 
   price: number, 
