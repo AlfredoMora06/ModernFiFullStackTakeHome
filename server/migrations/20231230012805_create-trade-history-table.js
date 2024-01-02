@@ -8,6 +8,7 @@ export const up = function (knex) {
       .primary()
       .defaultTo(knex.raw("(GEN_RANDOM_UUID())"));
     table.uuid("trade_id").notNullable();
+    table.foreign("trade_id").references("trades.id");
     table.text("ticker_symbol").notNullable();
     table.text("side").notNullable(); // Buy/Sell
     table.decimal("price").notNullable();

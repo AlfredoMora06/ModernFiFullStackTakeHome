@@ -5,7 +5,7 @@ const statusType: string[] = ["pending", "successful", "failed"]
 export type Status = 'pending' | 'successful'| 'failed'
 
 export interface Trade {
-  trade_id: string,
+  id: string,
   ticker_symbol: string,
   side: string, 
   price: number, 
@@ -16,7 +16,7 @@ export interface Trade {
 
 export const fieldDefinitions: FieldSpecForDiff[] = [
   {
-    name: 'trade_id',
+    name: 'id',
     type: 'UUID',
     requiredForCreateRequest: false,
     returnFromDbQuery: true,

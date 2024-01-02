@@ -13,8 +13,8 @@ import tradeFixtures from "./trades.js"
 // ** MUST BE ADDED IN ORDER OF FOREIGN KEY DEPENDENCIES
 const fixtureTablesOrderedByDependency: FixtureTable[] = [
   tickerStatisticsFixtures,
-  tradeHistoryFixtures,
   tradeFixtures,
+  tradeHistoryFixtures,
 ]
 
 // Allows us easy access to fixtures

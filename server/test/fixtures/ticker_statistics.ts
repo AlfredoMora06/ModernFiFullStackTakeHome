@@ -1,7 +1,7 @@
 import {FixtureTable} from "./util/index.js"
 
-const aaplTradeStats = {
-  ticker_symbol: "AAPL",
+const aaplStats = {
+  ticker_symbol: 'AAPL',
   highest_price: 100,
   lowest_price: 5,
   vwap: 6,
@@ -9,10 +9,10 @@ const aaplTradeStats = {
 
 
 const tickerStatisticsFixtures: FixtureTable = {
-  tableName: 'trade_statistics',
+  tableName: 'ticker_statistics',
   alwaysFlush: true,
   data: {
-    aaplTradeStats,
+    aaplStats,
   }
 }
 

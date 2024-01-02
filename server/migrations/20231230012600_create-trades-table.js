@@ -3,7 +3,7 @@
  */
 export const up = function (knex) {
   return knex.schema.createTable("trades", function (table) {
-    table.uuid("trade_id").primary().defaultTo(knex.raw("(GEN_RANDOM_UUID())"));
+    table.uuid("id").primary().defaultTo(knex.raw("(GEN_RANDOM_UUID())"));
     table.text("ticker_symbol").notNullable();
     table.text("side").notNullable(); // Buy/Sell
     table.decimal("price").notNullable();
