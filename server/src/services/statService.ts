@@ -23,15 +23,23 @@ async function updateTickerStats(trade: Trade.Trade, currentTickerStats: TickerS
     )
   }
 
+  // Calculate lowest and highest price
+  let lowest_price = Number.POSITIVE_INFINITY
+  let highest_price = Number.NEGATIVE_INFINITY
+  tradeHistory.forEach((h) => {
+    if ((convertStringToValidNumber(h.price) ?? 0) < (convertStringToValidNumber(lowest_price) ?? 0)) 
+      lowest_price = h.price
+    if ((convertStringToValidNumber(h.price) ?? 0) > (convertStringToValidNumber(highest_price) ?? 0)) 
+      highest_price = h.price;
+  })
+
   const newTickerStats: TickerStatistics.TickerStatistics = {
     ticker_symbol: trade.ticker_symbol,
-    highest_price: (convertStringToValidNumber(trade.price) ?? 0) > (convertStringToValidNumber(currentTickerStats.highest_price) ?? 0) 
-      ? trade.price 
-      : currentTickerStats.highest_price,
-    lowest_price: (convertStringToValidNumber(trade.price) ?? 0) < (convertStringToValidNumber(currentTickerStats.lowest_price) ?? 0) 
-      ? trade.price 
-      : currentTickerStats.lowest_price,
-    vwap: totalVolumeForAllTrades > 0 && sumOfVolumeXPriceForAllTrades > 0 ? sumOfVolumeXPriceForAllTrades/totalVolumeForAllTrades : 0
+    highest_price,
+    lowest_price,
+    vwap: totalVolumeForAllTrades > 0 && sumOfVolumeXPriceForAllTrades > 0 
+      ? sumOfVolumeXPriceForAllTrades/totalVolumeForAllTrades 
+      : 0
   }
 
   await statData.updateTickerStats(newTickerStats)
