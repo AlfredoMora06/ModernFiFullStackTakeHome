@@ -1,11 +1,8 @@
 // NOTE: amount MUST BE A NUMBER -- strings may not be formatted correctly
-export const formatMoney = (amount: number, notRounded?: boolean): string => {
+export const formatMoney = (amount: number): string => {
   let options: any = {
     style: "currency",
     currency: "USD",
-  }
-  if (notRounded) {
-    options.maximumSignificantDigits = 5
   }
   const formatter = new Intl.NumberFormat("en-US", options)
 
@@ -24,4 +21,18 @@ export function formatDateTimeLongMonth(
     minute: "2-digit",
   }
   return date.toLocaleDateString("en-US", dateLongOptions)
+}
+
+export function formatDateTimeShort(
+  dateString: Date, 
+): string {
+  const date = new Date(dateString)
+  const dateShortOptions: Intl.DateTimeFormatOptions = {
+    month: "2-digit",
+    day: "2-digit",
+    year: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  }
+  return date.toLocaleDateString("en-US", dateShortOptions)
 }
