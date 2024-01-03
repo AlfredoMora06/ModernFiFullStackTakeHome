@@ -78,6 +78,10 @@ Runs any migration files that have not yet been run on the connected postgres da
    - You can always reset the database with `psql postgres -c 'DROP DATABASE modernfi;' ; psql modernfi -c 'CREATE DATABASE modernfi;'`
 1. Update with all relevant database schema: `npm run migrate-up`
 
+Note: For a computer that has just installed postgres, make sure to assign the db with a user when creating:
+Ex: `psql postgres -c 'CREATE USER postgres SUPERUSER;'`
+Then: `psql postgres -c 'CREATE DATABASE modernfi WITH OWNER postgres;'`
+
 ---
 
 ## Testing
