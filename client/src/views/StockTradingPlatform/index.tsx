@@ -3,6 +3,7 @@ import { Button, Container, Grid, TextField, Typography  } from "@mui/material"
 import { useSnackbar } from "notistack"
 import { Formik, Form } from "formik"
 import ErrorIcon from '@mui/icons-material/Error'
+import * as Yup from "yup"
 
 import FormSmallContainer from "../../components/Fields/FormSmallContainer"
 //@ts-ignore
@@ -96,6 +97,10 @@ export default function StockTradingPlatform():JSX.Element {
                 <Grid item xs={12}>
                   <Formik<{ticker_symbol: string}>
                     validateOnChange={false}
+                    validationSchema={Yup.object().shape({
+                      ticker_symbol: Yup.string()
+                        .matches(/^\S*$/, 'Whitespace is not allowed')
+                    })}
                     initialValues={{ticker_symbol: ""}}
                     onSubmit={async (values, { resetForm, setSubmitting }) => {
                       setSubmitting(true)
@@ -109,6 +114,8 @@ export default function StockTradingPlatform():JSX.Element {
                       handleChange,
                       isSubmitting,
                       values,
+                      touched,
+                      errors,
                     }) => {
                       return (
                         <Form>
@@ -117,6 +124,8 @@ export default function StockTradingPlatform():JSX.Element {
                               <Grid item xs={12}>
                                 <TextField
                                   fullWidth
+                                  error={Boolean(touched.ticker_symbol && errors.ticker_symbol)}
+                                  helperText={touched.ticker_symbol && errors.ticker_symbol}
                                   label={"Enter Ticker Symbol"}
                                   name="ticker_symbol"
                                   onBlur={handleBlur}

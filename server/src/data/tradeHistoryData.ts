@@ -1,7 +1,4 @@
-import { QueryParams } from "../controllers/req-data-validation"
-import { TradeHistory } from "../model/index.js"
-import { db, whereBuilder } from "./db.js"
-import { updateFilterForQueryParams, updateFilterForTableName } from "./util.js"
+import { db } from "./db.js"
 
 async function createTradeHistory(tradeHistory: any): Promise<any> {
   return (await db('trade_history').insert(tradeHistory, '*'))[0]

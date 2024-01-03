@@ -74,8 +74,8 @@ Runs any migration files that have not yet been run on the connected postgres da
 # Local Database Setup
 
 1. Install postgres 14 (On Mac, see below)
-1. Create the postgres database `psql postgres -c 'CREATE DATABASE postgres;'`
-   - You can always reset the database with `psql postgres -c 'DROP DATABASE postgres;' ; psql postgres -c 'CREATE DATABASE postgres;'`
+1. Create the postgres database `psql postgres -c 'CREATE DATABASE modernfi;'`
+   - You can always reset the database with `psql postgres -c 'DROP DATABASE modernfi;' ; psql modernfi -c 'CREATE DATABASE modernfi;'`
 1. Update with all relevant database schema: `npm run migrate-up`
 
 ---
@@ -114,4 +114,3 @@ DB_USER=postgres
 DB_PASSWORD=Mysterio6199
 DB_NAME=postgres
 ```
-
