@@ -114,3 +114,25 @@ DB_USER=postgres
 DB_PASSWORD=Mysterio6199
 DB_NAME=postgres
 ```
+
+# Process
+
+<img width="1512" alt="Screenshot 2024-01-03 at 9 58 11 AM" src="https://github.com/AlfredoMora06/ModernFiFullStackTakeHome/assets/33073152/c6923a29-6dfa-4b29-8ddf-d98cb0d41b3e">
+
+Once entering a ticker the database will check to see if it's in there, if not the api will be creating one.
+
+<img width="1512" alt="Screenshot 2024-01-03 at 9 58 34 AM" src="https://github.com/AlfredoMora06/ModernFiFullStackTakeHome/assets/33073152/9c8d6148-8bc8-4277-beb5-6c18a6eea80d">
+
+If a ticker has just been created but not traded yet, you will not see the view ticker history button
+
+<img width="1512" alt="Screenshot 2024-01-03 at 10 08 58 AM" src="https://github.com/AlfredoMora06/ModernFiFullStackTakeHome/assets/33073152/47a83a50-9434-47ba-9d9e-99ab6bc9386b">
+
+Comparison
+
+<img width="1512" alt="Screenshot 2024-01-03 at 10 09 15 AM" src="https://github.com/AlfredoMora06/ModernFiFullStackTakeHome/assets/33073152/750b9096-dbf3-4bbc-a094-e1b3ab2b4093">
+<img width="1512" alt="Screenshot 2024-01-03 at 10 09 29 AM" src="https://github.com/AlfredoMora06/ModernFiFullStackTakeHome/assets/33073152/921a1faf-4499-4db2-9967-69f346558942">
+
+View Ticker History
+
+
+
