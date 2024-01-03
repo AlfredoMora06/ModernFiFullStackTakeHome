@@ -10,7 +10,7 @@ In the project directory (**enter the client folder** -- `cd client`), you can r
 
 **`npm install`**
 
-then
+installs dependencies
 
 **`npm run start`**
 
@@ -49,7 +49,7 @@ In the project directory(**enter the server folder** -- `cd server`), you can ru
 
 **`npm install`**
 
-then
+installs dependencies
 
 **`npm run cbs`**
 
