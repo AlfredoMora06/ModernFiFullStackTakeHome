@@ -1,4 +1,4 @@
-export type TradeStatus = 'pending' | 'successful'| 'failed'
+export type TradeStatus =  'successful'| 'failed'
 
 export type TradeHistory = {
   trade_history_id: string,

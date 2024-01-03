@@ -1,8 +1,8 @@
 import { FieldSpec } from "./Model"
 
-const tradeStatusType: string[] = ["pending", "successful", "failed"]
+const tradeStatusType: string[] = ["successful", "failed"]
 
-export type TradeStatus = 'pending' | 'successful'| 'failed'
+export type TradeStatus = 'successful'| 'failed'
 
 export interface TradeHistory {
   trade_history_id: string,
