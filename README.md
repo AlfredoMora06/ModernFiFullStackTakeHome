@@ -1,6 +1,6 @@
 # ModernFi Full Stack Take Home
 
-Instructions found [here](https://gist.github.com/miguel250/c9a669a39bbcc6803c4df9c05bf01235)
+Instructions found [here](https://gist.github.com/miguel250/c9a669a39bbcc6803c4df9c05bf01235).
 
 # Frontend
 
