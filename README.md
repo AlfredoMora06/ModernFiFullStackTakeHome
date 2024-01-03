@@ -1,5 +1,7 @@
 # ModernFi Full Stack Take Home
 
+Instructions found [here](https://gist.github.com/miguel250/c9a669a39bbcc6803c4df9c05bf01235)
+
 # Frontend
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
