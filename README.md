@@ -1,5 +1,4 @@
-# ModernFiFullStackTakeHome
-ModernFi FullStack Take Home
+# ModernFi Full Stack TakeHome
 
 # Frontend
 
