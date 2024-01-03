@@ -37,6 +37,8 @@ REACT_APP_API_BASE_URL=http://localhost:8080/v1
 REACT_APP_ENV=development
 ```
 
+---
+
 # Backend
 
 <a name="scripts"></a>
